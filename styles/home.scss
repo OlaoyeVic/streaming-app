@@ -1,0 +1,135 @@
+.home-container {
+    // padding: 20px;
+    min-height: 100vh;
+    font-family: 'Netflix Sans';
+}
+.mobile-home-container {
+    .mobile-first-section {
+        background-image: url("../public/assets/bg-img.jpg");
+        background-color: var(--black-color);
+        background-blend-mode: hard-light;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-bottom: 8px solid #222;
+        color: #fff;
+        margin-bottom: 0;
+        .mobile-header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Netflix Sans';
+            h2 {
+                color: var(--white-text);
+                font-weight: 900;
+            }
+            button {
+                background-color: var(--primary-color);
+                color: var(--white-text);
+                border-radius: 3px;
+                border: none;
+                outline: none;
+                width: 61.17px;
+                height: 27px;
+                font-family: 'Netflix Sans';
+                font-weight: 400;
+                line-height: normal;
+            }
+        }
+        .mobile-title-text {
+            padding: 20px;
+            max-width: 640px;
+            text-transform: capitalize;
+            text-align: center;
+            font-family: 'Netflix Sans';
+            h1{
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            h3 {
+                font-size: 18px;
+            }
+        }
+        .welcome-button {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            button {
+                width: 130.83px;
+                height: 40px;
+                background-color: var(--primary-color);
+                color: var(--white-text);
+                text-transform: capitalize;
+                text-align: center;
+                outline: none;
+                border: none;
+                border-radius: 2px;
+                font-family: 'Netflix Sans';
+                font-size: 16px;
+            }
+        }
+    }
+    .mobile-second-section {
+        padding: 20px;
+        max-width: 640px;
+        text-transform: capitalize;
+        text-align: center;
+        border-bottom: 8px solid #222;
+        color: #fff;
+        margin-bottom: 0;
+        h1 {
+            font-size: 26px;
+        }
+        h2 {
+            font-size: 18px;
+        }
+    }
+    .mobile-third-section {
+        @extend .mobile-second-section
+    }
+    .mobile-fourth-section {
+        @extend .mobile-second-section
+    }
+    .mobile-faq {
+        border-bottom: 8px solid #222;
+        color: #fff;
+        margin-bottom: 0;
+        h1 {
+            padding: 20px;
+            max-width: 640px;
+            text-transform: capitalize;
+            text-align: center;
+            font-size: 26px;
+        }
+        .faq-text {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            h3 {
+                font-size: 18px;
+                font-family: 'Netflix Sans';
+                max-width: 640px;
+                text-align: center;
+                text-transform: capitalize;
+            }
+            button {
+                width: 130.83px;
+                height: 40px;
+                background-color: var(--primary-color);
+                color: var(--white-text);
+                text-transform: capitalize;
+                text-align: center;
+                outline: none;
+                border: none;
+                border-radius: 2px;
+                font-family: 'Netflix Sans';
+                font-size: 16px;
+            }
+        }
+    }
+}

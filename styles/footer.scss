@@ -1,0 +1,27 @@
+.mobile-footer{
+    padding: 20px;
+    .footer-title p {
+        font-size: 16px;
+        font-family: 'Netflix Sans';
+        color: #737373;
+        text-transform: capitalize;
+    }
+    .footer-links {
+        display: flex;
+        justify-content: space-between;
+        row-gap: 5px;
+        div {
+            margin: 15px 0;
+            color: #737373;
+            font-size: 13px;
+            font-family: 'Netflix Sans';
+            text-transform: capitalize;
+        }
+    }
+    .bottom-text p {
+        color: #737373; 
+        text-transform: capitalize;
+        font-family: 'Netflix Sans';
+        font-size: 13px;
+    }
+}
