@@ -50,7 +50,7 @@ const Home: NextPage = () => {
           <h1>watch everyone</h1>
           <h2>stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</h2>
         </div>
-        <div className='mobile-fourth-section'>
+        <div className='mobile-fifth-section'>
           <h1>create profiles for kids</h1>
           <h2>send kids on adventures with their favourite characters in a space made just for them-free with your membership.</h2>
           <Image src={kids} alt="kids" quality={100} />
@@ -69,7 +69,70 @@ const Home: NextPage = () => {
           <Footer />
         </div>
       </div>
-      <div className='desktop-home-container'></div>
+      <div className='desktop-home-container'>
+        <div className='desktop-first-section'>
+          <div className='desktop-header'>
+            <div>
+              <h2>stream<b style={{color: '#e50914'}}>it</b></h2>
+            </div>
+            <div>
+              <button>Sign in</button>
+            </div>
+          </div>
+          <div className='desktop-title-text'>
+            <h1>unlimited movies, TV shows, and more.</h1>
+            <h2>watch anywhere, cancel anytime.</h2>
+            <h3>ready to watch? start here.</h3>
+          </div>
+          <div className='desktop-welcome-button'>
+            <button>get started &gt;</button>
+          </div>
+        </div>
+        <div className='desktop-second-section'>
+          <div>
+            <h1>enjoy on your TV.</h1>
+            <h2>watch on smart TVs, playstation, chromecast, apple TV, blu-ray players and more.</h2>
+          </div>
+          <div>
+            <Image src={tv} alt="TV" quality={100} />
+          </div>
+        </div>
+        <div className='desktop-third-section'>
+          <div>
+            <Image src={mobile} alt="mobile phone" quality={100} />
+          </div>
+          <div>
+            <h1>download your shows to watch offline</h1>
+            <h2>save your favourites easily and always have something to watch</h2>
+          </div>
+        </div>
+        <div className='desktop-fourth-section'>
+          <h1>watch everyone</h1>
+          <h2>stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</h2>
+        </div>
+        <div className='desktop-fifth-section'>
+          <div>
+            <h1>create profiles for kids</h1>
+            <h2>send kids on adventures with their favourite characters in a space made just for them-free with your membership.</h2>
+          </div>
+          <div>
+            <Image src={kids} alt="kids" quality={100} />
+          </div>
+        </div>
+        <div className='desktop-faq'>
+          <h1>frequently asked questions</h1>
+          {faqs.map(({ question, answer }) => (
+            <Faq question={question} answer={answer} />
+          ))}
+          <div className="faq-text">
+            <h3>ready to watch? click the button to start</h3>
+            <button>get started &gt;</button>
+          </div>
+        </div>
+        <div className='desktop-footer'>
+          <Footer />
+        </div>
+      </div>
     </div>
   )
 }

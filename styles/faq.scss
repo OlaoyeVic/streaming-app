@@ -1,18 +1,52 @@
-.faq-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #303030;
-    border-bottom: 8px solid var(--black-color);
-    height: 59.44px;
-    padding: 0 20px;
-    font-family: 'Netflix Sans';
-    font-size: 18px;
+.mobile-faq {
+    .faq-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #303030;
+        border-bottom: 8px solid var(--black-color);
+        height: 59.44px;
+        padding: 0 20px;
+        font-family: 'Netflix Sans';
+        font-size: 18px;
+    }
+    .faq-content {
+        background: #303030;
+        padding: 20px;
+        text-align: left;
+        font-family: 'Netflix Sans';
+        font-size: 18px;
+    }
 }
-.faq-content {
-    background: #303030;
-    padding: 20px;
-    text-align: left;
-    font-family: 'Netflix Sans';
-    font-size: 18px;
+.desktop-faq {
+    display: none;
+}
+
+@media (min-width: 760px) {
+    .mobile-faq {
+        display: none;
+    }
+    .desktop-faq {
+        display: block;
+        padding: 0 20px;
+        .faq-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #303030;
+            border-bottom: 7px solid var(--black-color);
+            height: 74.49px;
+            padding: 0 20px;
+            font-family: 'Netflix Sans';
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .faq-content {
+            background: #303030;
+            padding: 20px;
+            text-align: left;
+            font-family: 'Netflix Sans';
+            font-size: 18px;
+        }
+    }
 }

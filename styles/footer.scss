@@ -17,11 +17,52 @@
             font-family: 'Netflix Sans';
             text-transform: capitalize;
         }
+        a:hover {
+            text-decoration: underline;
+        }
     }
     .bottom-text p {
         color: #737373; 
         text-transform: capitalize;
         font-family: 'Netflix Sans';
         font-size: 13px;
+    }
+}
+.desktop-footer {
+    display: none;
+}
+
+@media (min-width: 760px) {
+    .mobile-footer {
+        display: none;
+    }
+    .desktop-footer {
+        display: block;
+        padding: 20px;
+        .desktop-footer-title a {
+            font-size: 16px;
+            font-family: 'Netflix Sans';
+            color: #737373;
+            text-transform: capitalize;
+            cursor: pointer;
+        }
+        .desktop-footer-title a:hover {
+            text-decoration: underline;
+        }
+        .desktop-footer-links {
+            display: flex;
+            justify-content: space-between;
+            row-gap: 5px;
+            div {
+                margin: 15px 0;
+                color: #737373;
+                font-size: 13px;
+                font-family: 'Netflix Sans';
+                text-transform: capitalize;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }

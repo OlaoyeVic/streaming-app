@@ -69,6 +69,10 @@
                 border-radius: 2px;
                 font-family: 'Netflix Sans';
                 font-size: 16px;
+                cursor: pointer;
+            }
+            button:hover {
+                filter: brightness(150%);
             }
         }
     }
@@ -88,10 +92,13 @@
         }
     }
     .mobile-third-section {
-        @extend .mobile-second-section
+        @extend .mobile-second-section;
     }
     .mobile-fourth-section {
-        @extend .mobile-second-section
+        @extend .mobile-second-section;
+    }
+    .mobile-fifth-section {
+        @extend .mobile-second-section;
     }
     .mobile-faq {
         border-bottom: 8px solid #222;
@@ -129,6 +136,181 @@
                 border-radius: 2px;
                 font-family: 'Netflix Sans';
                 font-size: 16px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.desktop-home-container {
+    display: none;
+}
+
+@media (min-width: 760px) {
+    .mobile-home-container {
+        display: none;
+    }
+    .desktop-home-container {
+        display: block;
+        font-family: 'Netflix Sans';
+        .desktop-first-section {
+            background-image: url("../public/assets/bg-img.jpg");
+            background-color: var(--black-color);
+            background-blend-mode: hard-light;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-bottom: 8px solid #222;
+            color: #fff;
+            margin-bottom: 0;
+            .desktop-header {
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-family: 'Netflix Sans';
+                h2 {
+                    color: var(--white-text);
+                    font-weight: 900;
+                    font-size: 40px;
+                }
+                button {
+                    background-color: var(--primary-color);
+                    color: var(--white-text);
+                    border-radius: 3px;
+                    border: none;
+                    outline: none;
+                    width: 84.19px;
+                    height: 34px;
+                    font-family: 'Netflix Sans';
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: normal;
+                    cursor: pointer;
+                }
+            }
+            .desktop-title-text {
+                padding: 60px 20px 20px 20px;
+                margin: 0 auto;
+                max-width: 640px;
+                text-transform: capitalize;
+                text-align: center;
+                font-family: 'Netflix Sans';
+                h1{
+                    font-size: 50px;
+                }
+                h2 {
+                    font-size: 26px;
+                }
+                h3 {
+                    font-size: 19.2px;
+                }
+            }
+            .desktop-welcome-button {
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                button {
+                    width: 212.97px;
+                    height: 60px;
+                    background-color: var(--primary-color);
+                    color: var(--white-text);
+                    text-transform: capitalize;
+                    text-align: center;
+                    outline: none;
+                    border: none;
+                    border-radius: 2px;
+                    font-family: 'Netflix Sans';
+                    font-size: 26px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .desktop-second-section {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            text-transform: capitalize;
+            border-bottom: 8px solid #222;
+            color: #fff;
+            margin-bottom: 0;
+            div:first-child {
+                width: 52%;
+                h1 {
+                    font-size: 50px;
+                }
+                h2 {
+                    font-size: 26px;
+                }
+            }
+        }
+        .desktop-third-section {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            text-transform: capitalize;
+            border-bottom: 8px solid #222;
+            color: #fff;
+            margin-bottom: 0;
+            div:nth-child(2) {
+                width: 52%;
+                h1 {
+                    font-size: 50px;
+                }
+                h2 {
+                    font-size: 26px;
+                }
+            }
+        }
+        .desktop-fourth-section {
+            padding: 20px;
+            text-transform: capitalize;
+            border-bottom: 8px solid #222;
+            color: #fff;
+            margin-bottom: 0;
+            h1 {
+                font-size: 50px;
+            }
+            h2 {
+                font-size: 26px;
+                margin: 0.75em 0 0.25em;
+                max-width: 400px;
+            }
+        }
+        .desktop-fifth-section {
+            @extend .desktop-second-section;
+        }
+        .desktop-faq {
+            h1{
+                padding: 20px;
+                text-transform: capitalize;
+                text-align: center;
+                font-size: 50px;
+                font-family: 'Netflix Sans';
+            }
+            .faq-text {
+                padding: 20px;
+                text-transform: capitalize;
+                text-align: center;
+                font-size: 19.2px;
+                font-family: 'Netflix Sans';
+                button {
+                    width: 212.97px;
+                    height: 60px;
+                    background-color: var(--primary-color);
+                    color: var(--white-text);
+                    text-transform: capitalize;
+                    text-align: center;
+                    outline: none;
+                    border: none;
+                    border-radius: 2px;
+                    font-family: 'Netflix Sans';
+                    font-size: 26px;
+                    cursor: pointer;
+                }
             }
         }
     }

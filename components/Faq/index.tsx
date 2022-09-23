@@ -10,13 +10,22 @@ const Faq = ({question, answer}: IProps) => {
     const [isActive, setIsActive] = useState(false)
     
     return (
-        <div>
-            <div className="faq-title" onClick={() => setIsActive(!isActive)}>
-                            <div>{question}</div>
-                            <div>{isActive ? '-' : '+'}</div>
+        <>
+            <div className="mobile-faq">
+                <div className="faq-title" onClick={() => setIsActive(!isActive)}>
+                                <div>{question}</div>
+                                <div>{isActive ? '-' : '+'}</div>
+                </div>
+                {isActive && <div className="faq-content">{answer}</div>}
             </div>
-            {isActive && <div className="faq-content">{answer}</div>}
-        </div>
+            <div className="desktop-faq">
+                <div className="faq-title" onClick={() => setIsActive(!isActive)}>
+                                <div>{question}</div>
+                                <div>{isActive ? '-' : '+'}</div>
+                </div>
+                {isActive && <div className="faq-content">{answer}</div>}
+            </div>
+        </>
     )
 }
 export default Faq
