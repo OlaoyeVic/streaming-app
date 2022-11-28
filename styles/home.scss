@@ -36,6 +36,9 @@
                 font-weight: 400;
                 line-height: normal;
             }
+            button:hover {
+                filter: brightness(150%);
+            }
         }
         .mobile-title-text {
             padding: 20px;
@@ -138,6 +141,9 @@
                 font-size: 16px;
                 cursor: pointer;
             }
+            button:hover {
+                filter: brightness(150%);
+            }
         }
     }
 }
@@ -187,6 +193,9 @@
                     line-height: normal;
                     cursor: pointer;
                 }
+                button:hover {
+                    filter: brightness(150%);
+                }
             }
             .desktop-title-text {
                 padding: 60px 20px 20px 20px;
@@ -223,6 +232,9 @@
                     font-size: 26px;
                     cursor: pointer;
                 }
+                button:hover {
+                    filter: brightness(150%);
+                }
             }
         }
         .desktop-second-section {
@@ -230,7 +242,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 20px 200px;
             text-transform: capitalize;
             border-bottom: 8px solid #222;
             color: #fff;
@@ -250,7 +262,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 20px 200px;
             text-transform: capitalize;
             border-bottom: 8px solid #222;
             color: #fff;
@@ -266,7 +278,7 @@
             }
         }
         .desktop-fourth-section {
-            padding: 20px;
+            padding: 20px 200px;
             text-transform: capitalize;
             border-bottom: 8px solid #222;
             color: #fff;
@@ -284,6 +296,10 @@
             @extend .desktop-second-section;
         }
         .desktop-faq {
+            border-bottom: 8px solid #222;
+            color: #fff;
+            margin-bottom: 0;
+            padding: 0 300px;
             h1{
                 padding: 20px;
                 text-transform: capitalize;
@@ -310,6 +326,9 @@
                     font-family: 'Netflix Sans';
                     font-size: 26px;
                     cursor: pointer;
+                }
+                button:hover {
+                    filter: brightness(150%);
                 }
             }
         }

@@ -1,15 +1,19 @@
-import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
-import Navbar from '../components/Navbar'
+import { UserProvider } from '@auth0/nextjs-auth0'
+
+import '../styles/globals.scss'
 import '../styles/home.scss'
 import '../styles/faq.scss'
 import '../styles/footer.scss'
+import '../styles/navbar.scss'
+import '../styles/sidebar.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <> 
-      {/* <Navbar /> */}
-      <Component {...pageProps} />
+    <>
+      <UserProvider>
+        <Component {...pageProps} />
+      </UserProvider>
     </>
   )
 }

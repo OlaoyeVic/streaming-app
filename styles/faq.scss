@@ -1,4 +1,4 @@
-.mobile-faq {
+.mb-faq {
     .faq-title {
         display: flex;
         justify-content: space-between;
@@ -18,15 +18,15 @@
         font-size: 18px;
     }
 }
-.desktop-faq {
+.dt-faq {
     display: none;
 }
 
 @media (min-width: 760px) {
-    .mobile-faq {
+    .mb-faq {
         display: none;
     }
-    .desktop-faq {
+    .dt-faq {
         display: block;
         padding: 0 20px;
         .faq-title {

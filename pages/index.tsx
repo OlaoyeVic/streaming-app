@@ -24,7 +24,9 @@ const Home: NextPage = () => {
               <h2>stream<b style={{color: '#e50914'}}>it</b></h2>
             </div>
             <div>
-              <button>Sign in</button>
+              <button>
+                <a href='/api/auth/login'>Sign In</a>
+              </button>
             </div>
           </div>
           <div className='mobile-title-text'>
@@ -33,7 +35,9 @@ const Home: NextPage = () => {
             <h3>ready to watch? start here.</h3>
           </div>
           <div className='welcome-button'>
-            <button>get started &gt;</button>
+            <button>
+              <a href='/api/auth/login'>get started &gt;</a>
+            </button>
           </div>
         </div>
         <div className='mobile-second-section'>
@@ -62,7 +66,9 @@ const Home: NextPage = () => {
           ))}
           <div className="faq-text">
             <h3>ready to watch? click the button to start</h3>
-            <button>get started &gt;</button>
+            <button>
+              <a href='/api/auth/login'>get started &gt;</a>
+            </button>
           </div>
         </div>
         <div className='mobile-footer'>
@@ -76,7 +82,9 @@ const Home: NextPage = () => {
               <h2>stream<b style={{color: '#e50914'}}>it</b></h2>
             </div>
             <div>
-              <button>Sign in</button>
+              <button>
+                <a href='/api/auth/login'>Sign In</a>
+              </button>
             </div>
           </div>
           <div className='desktop-title-text'>
@@ -85,7 +93,9 @@ const Home: NextPage = () => {
             <h3>ready to watch? start here.</h3>
           </div>
           <div className='desktop-welcome-button'>
-            <button>get started &gt;</button>
+            <button>
+              <a href='/api/auth/login'>get started &gt;</a>
+            </button>
           </div>
         </div>
         <div className='desktop-second-section'>
@@ -126,7 +136,9 @@ const Home: NextPage = () => {
           ))}
           <div className="faq-text">
             <h3>ready to watch? click the button to start</h3>
-            <button>get started &gt;</button>
+            <button>
+              <a href='/api/auth/login'>get started &gt;</a>
+            </button>
           </div>
         </div>
         <div className='desktop-footer'>
