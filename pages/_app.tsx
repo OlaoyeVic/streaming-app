@@ -7,6 +7,8 @@ import '../styles/faq.scss'
 import '../styles/footer.scss'
 import '../styles/navbar.scss'
 import '../styles/sidebar.scss'
+import '../styles/welcome.scss'
+import '../styles/browse.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

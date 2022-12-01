@@ -1,3 +1,4 @@
+import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -6,8 +7,9 @@ import mobile from '../public/assets/mobile-0819.jpg'
 import kids from '../public/assets/kids.png'
 import Faq from '../components/Faq'
 import { faqs } from '../data/faqs'
-import { ReactNode } from 'react'
 import Footer from '../components/Footer'
+import { useUser } from '@auth0/nextjs-auth0'
+import Welcome from './welcome'
 
 interface IFaq {
   question: string
@@ -15,6 +17,21 @@ interface IFaq {
 }
 
 const Home: NextPage = () => {
+  const { user, error, isLoading } = useUser()
+
+  if(isLoading) {
+    return <div>loading ...</div>
+  }
+
+  if(error) {
+    return <div>{error.message}</div>
+  }
+
+  if(user) {
+    return (
+      <Welcome />
+    )
+  }
   return (
     <div className='home-container'>
       <div className='mobile-home-container'>
