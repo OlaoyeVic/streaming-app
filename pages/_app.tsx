@@ -1,5 +1,7 @@
 import type { AppProps } from 'next/app'
 import { UserProvider } from '@auth0/nextjs-auth0'
+import { DehydratedState, Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { useState } from 'react'
 
 import '../styles/globals.scss'
 import '../styles/home.scss'
@@ -10,12 +12,17 @@ import '../styles/sidebar.scss'
 import '../styles/welcome.scss'
 import '../styles/browse.scss'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: DehydratedState}>) {
+  const [queryClient] = useState(() => new QueryClient())
   return (
     <>
-      <UserProvider>
-        <Component {...pageProps} />
-      </UserProvider>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <UserProvider>
+            <Component {...pageProps} />
+          </UserProvider>
+        </Hydrate>
+      </QueryClientProvider>
     </>
   )
 }

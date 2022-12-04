@@ -1,13 +1,16 @@
 import { slide as Menu } from 'react-burger-menu'
 import avatar from '../../public/assets/avatar.png'
 import Image from 'next/image'
+import { useUser } from '@auth0/nextjs-auth0'
 
 const Sidebar = () => {
+    const { user } = useUser()
+    console.log(user)
     return (
         <>
             <Menu>
                 <a className='menu-item' href='/'>
-                    <Image src={avatar} alt="avatar" /> <b style={{fontSize: '35px'}}>Victor</b>
+                    <Image src={avatar} alt="avatar" /> <b style={{fontSize: '25px', verticalAlign: 'top'}}>{user?.nickname}</b>
                 </a>
                 <a className='menu-item' href='/'>
                     Account
