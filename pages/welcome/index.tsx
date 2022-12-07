@@ -25,16 +25,16 @@ const Welcome: NextPage = () => {
         <div className="welcome">
             <div className="mobile-welcome">
                 <Image src={video} alt="video streaming" quality={100} />
-                <h3>Hey {user?.name}!</h3>
-                <p>Welcome Back</p>
+                <h3>Hey <>{user?.given_name}</>, Welcome!</h3>
+                {/* <p>Welcome Back</p> */}
             </div>
             <div className="desktop-welcome">
                 <div className="left-panel">
                     <Image src={video} alt="video streaming" quality={100} />
                 </div>
                 <div className="right-panel">
-                    <h3>Hey {user?.name}!</h3>
-                    <p>Welcome Back</p>
+                    <h3>Hey <>{user?.given_name}, Welcome!</></h3>
+                    {/* <p>Welcome Back</p> */}
                 </div>
             </div>
         </div>

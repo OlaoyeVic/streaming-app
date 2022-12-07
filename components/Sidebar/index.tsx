@@ -5,7 +5,7 @@ import { useUser } from '@auth0/nextjs-auth0'
 
 const Sidebar = () => {
     const { user } = useUser()
-    console.log(user)
+    // console.log(user)
     return (
         <>
             <Menu>
