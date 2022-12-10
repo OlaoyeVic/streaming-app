@@ -5,6 +5,8 @@ import avatar from '../../public/assets/avatar.png'
 import sort from '../../public/assets/sort-down.png'
 import Sidebar from '../Sidebar'
 import { useUser } from '@auth0/nextjs-auth0'
+import { User } from '../../interfaces'
+
 
 const Navbar = () => {
     const { user } = useUser()
@@ -103,7 +105,7 @@ const Navbar = () => {
                     </div>
                     <div className='profile-details'>
                         <pre>
-                            <Image src={avatar} alt="avatar" height={28} width={27} style={{verticalAlign: 'middle'}} />&nbsp;
+                            <Image src={user?.picture!} alt="avatar" height={28} width={27} style={{verticalAlign: 'middle'}} />&nbsp;
                             <Image src={sort} alt='sort down arrow' width={12} height={15} style={{marginBottom: '7px'}} />
                         </pre>
                         {/* <b style={{fontSize: '25px', verticalAlign: 'top', cursor: 'pointer'}}>{user?.nickname}</b> */}

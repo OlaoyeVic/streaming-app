@@ -2,8 +2,16 @@
     width: 100%;
 }
 .mobile-browse-container {
+    padding: 20px;
     display: flex;
+    flex-direction: column;
 }
 .desktop-browse-container {
     display: none;
+}
+
+@media (min-width: 760px) {
+    .mobile-browse-container {
+        display: none;
+    }
 }
