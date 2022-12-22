@@ -77,6 +77,7 @@ const BrowseMovies: NextPage = () => {
                             ))}
                         </div>
                         <h2>Genre</h2>
+                        <div className="genre-section"></div>
                     </div>
                 </div>
             </div>
