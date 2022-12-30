@@ -43,6 +43,42 @@
                     overflow-y: hidden;
                 }
             }
+            .action-movies-section::-webkit-scrollbar {
+                display: none;
+            }
+            .action-movies-section {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                overflow-x: auto;
+                column-gap: 30px;
+                figure {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0 3px;
+                    cursor: pointer;
+                    flex-shrink: 0;
+                    position: relative;
+                    figcaption {
+                        position: absolute;
+                        bottom: 0;
+                        text-align: center;
+                        text-transform: capitalize;
+                        font-weight: bold;
+                        font-size: 12px;
+                        caption-side: bottom;
+                    }
+                }
+                ::after {
+                    content: attr(data-content);
+                    caption-side: bottom;
+                    max-width: 148px;
+                    max-height: 21px;
+                    text-align: center;
+                    overflow-y: hidden;
+                }
+            }
             // .popular-movies-section > p {
             //     flex: 0 0 100%;
             // }
@@ -80,6 +116,15 @@
                 }
             }
             .desktop-popular-movie-category > p {
+                padding: 0 20px;
+                flex: 0 0 100%;
+                font-size: 26px;
+                color: #E5E5E5;
+            }
+            .desktop-action-movie-category {
+                @extend .desktop-popular-movie-category;
+            }
+            .desktop-action-movie-category > p {
                 padding: 0 20px;
                 flex: 0 0 100%;
                 font-size: 26px;
