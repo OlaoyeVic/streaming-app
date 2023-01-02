@@ -1,5 +1,11 @@
 .navbar-container {
+    position: fixed;
     width: 100%;
+    z-index: 9999;
+    background: var(--black-color);
+    top: 0;
+    left: 0;
+    right: 0;
 }
 .mobile-container {
     // padding: 20px;
@@ -17,9 +23,9 @@
         }
     }
     .search-bar {
-        padding: 20px;
+        margin: 0 20px 0 0px;
         input {
-            width: 114px;
+            max-width: 114px;
             height: 28px;
             padding: 4px 8px;
             font-family: 'Netflix Sans';

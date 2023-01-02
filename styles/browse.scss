@@ -3,6 +3,7 @@
 }
 .mobile-browse-container {
     display: block;
+    margin-top: 50px;
     .movie-sections {
         padding: 20px;
         .movie-categories {
@@ -79,6 +80,18 @@
                     overflow-y: hidden;
                 }
             }
+            .animation-movies-section::-webkit-scrollbar {
+                display: none
+            }
+            .animation-movies-section {
+                @extend .action-movies-section;
+            }
+            .crime-movies-section::-webkit-scrollbar {
+                display: none
+            }
+            .crime-movies-section {
+                @extend .action-movies-section;
+            }
             // .popular-movies-section > p {
             //     flex: 0 0 100%;
             // }
@@ -95,6 +108,7 @@
     }
     .desktop-browse-container {
         display: block;
+        margin-top: 100px;
         padding: 20px;
         .desktop-movie-sections {
             .desktop-popular-movie-category {
@@ -115,17 +129,16 @@
                     }
                 }
             }
-            .desktop-popular-movie-category > p {
-                padding: 0 20px;
+            .desktop-popular-movie-category > h2 {
                 flex: 0 0 100%;
                 font-size: 26px;
                 color: #E5E5E5;
             }
             .desktop-action-movie-category {
+                margin-top: 20px;
                 @extend .desktop-popular-movie-category;
             }
-            .desktop-action-movie-category > p {
-                padding: 0 20px;
+            .desktop-action-movie-category > h2 {
                 flex: 0 0 100%;
                 font-size: 26px;
                 color: #E5E5E5;
