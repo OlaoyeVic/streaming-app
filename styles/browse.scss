@@ -2,6 +2,7 @@
     width: 100%;
 }
 .mobile-browse-container {
+    border-bottom: 8px solid #222;
     display: block;
     margin-top: 50px;
     .movie-sections {
@@ -35,62 +36,26 @@
                         caption-side: bottom;
                     }
                 }
-                ::after {
-                    content: attr(data-content);
-                    caption-side: bottom;
-                    max-width: 148px;
-                    max-height: 21px;
-                    text-align: center;
-                    overflow-y: hidden;
-                }
+                // ::after {
+                //     content: attr(data-content);
+                //     caption-side: bottom;
+                //     max-width: 148px;
+                //     max-height: 21px;
+                //     text-align: center;
+                //     overflow-y: hidden;
+                // }
             }
-            .action-movies-section::-webkit-scrollbar {
+            .action-movies-section::-webkit-scrollbar, 
+            .animation-movies-section::-webkit-scrollbar, 
+            .crime-movies-section::-webkit-scrollbar, 
+            .adventure-movies-section::-webkit-scrollbar {
                 display: none;
             }
-            .action-movies-section {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                overflow-x: auto;
-                column-gap: 30px;
-                figure {
-                    display: flex;
-                    flex-direction: column;
-                    margin: 0 3px;
-                    cursor: pointer;
-                    flex-shrink: 0;
-                    position: relative;
-                    figcaption {
-                        position: absolute;
-                        bottom: 0;
-                        text-align: center;
-                        text-transform: capitalize;
-                        font-weight: bold;
-                        font-size: 12px;
-                        caption-side: bottom;
-                    }
-                }
-                ::after {
-                    content: attr(data-content);
-                    caption-side: bottom;
-                    max-width: 148px;
-                    max-height: 21px;
-                    text-align: center;
-                    overflow-y: hidden;
-                }
-            }
-            .animation-movies-section::-webkit-scrollbar {
-                display: none
-            }
-            .animation-movies-section {
-                @extend .action-movies-section;
-            }
-            .crime-movies-section::-webkit-scrollbar {
-                display: none
-            }
-            .crime-movies-section {
-                @extend .action-movies-section;
+            .action-movies-section, 
+            .animation-movies-section, 
+            .crime-movies-section, 
+            .adventure-movies-section {
+                @extend .popular-movies-section;
             }
             // .popular-movies-section > p {
             //     flex: 0 0 100%;
@@ -107,6 +72,7 @@
         display: none;
     }
     .desktop-browse-container {
+        border-bottom: 8px solid #222;
         display: block;
         margin-top: 100px;
         padding: 20px;
@@ -134,14 +100,12 @@
                 font-size: 26px;
                 color: #E5E5E5;
             }
-            .desktop-action-movie-category {
+            .desktop-action-movie-category, 
+            .desktop-crime-movie-category, 
+            .desktop-animation-movie-category, 
+            .desktop-adventure-movie-category {
                 margin-top: 20px;
                 @extend .desktop-popular-movie-category;
-            }
-            .desktop-action-movie-category > h2 {
-                flex: 0 0 100%;
-                font-size: 26px;
-                color: #E5E5E5;
             }
         }
     }

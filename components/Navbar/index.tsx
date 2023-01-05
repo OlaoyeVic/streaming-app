@@ -6,10 +6,27 @@ import sort from '../../public/assets/sort-down.png'
 import Sidebar from '../Sidebar'
 import { useUser } from '@auth0/nextjs-auth0'
 import { User } from '../../interfaces'
+import { useState } from 'react'
+import type { GetServerSideProps } from 'next'
+import { dehydrate, QueryClient } from '@tanstack/react-query'
+import { searchMovies } from '../../pages/api/search'
 
+export const getServerSideProps: GetServerSideProps = async() => {
+
+    const queryClient = new QueryClient()
+
+    await queryClient.fetchQuery(['search-results'], () => searchMovies())
+
+    return {
+        props: {
+            dehydratedState: dehydrate(queryClient)
+        }
+    }
+}
 
 const Navbar = () => {
     const { user } = useUser()
+    const [search, setSearch] = useState('')
     return (
         <div className="navbar-container">
             <div className="mobile-container">

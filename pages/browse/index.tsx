@@ -7,6 +7,7 @@ import { fetchMoviesPage2 } from "../api/browsepagetwo"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import Footer from "../../components/Footer"
 
 
 const shimmer = (w: number, h: number) => `
@@ -56,10 +57,10 @@ const BrowseMovies: NextPage = () => {
                     <div className="movie-trailer-section">
                     </div>
                     <div className="movie-categories">
-                        {data ? <h2>Popular Movies</h2>: null}
+                        {data.results ? <h2>Popular Movies</h2>: null}
                         <div className="popular-movies-section">
                             {data?.results?.map((result: string | any, index: number) => ( 
-                                    <Link href='' passHref >
+                                    <Link href={`movies/${result?.id}`} passHref >
                                         <figure key={index} data-content={result?.original_title}>
                                             <Image 
                                                 // loader={() => imageUrl + result?.poster_path}
@@ -97,7 +98,7 @@ const BrowseMovies: NextPage = () => {
                                     </Link>
                             ))}
                         </div>
-                        {data ? <h2>Action</h2> : null}
+                        {data.results ? <h2>Action</h2> : null}
                         <div className="action-movies-section">
                             {data?.results?.filter((result: number | any) => result?.genre_ids[0] === 28)
                                             .map((result: string | any, index: number) => (
@@ -118,7 +119,7 @@ const BrowseMovies: NextPage = () => {
                                                 </Link>
                             ))}
                         </div>
-                        {data ? <h2>Crime</h2> : null}
+                        {data.results ? <h2>Crime</h2> : null}
                         <div className="crime-movies-section">
                             {data?.results?.filter((result: number | any, index: number) => result?.genre_ids[2] === 80)
                                             .map((result: string | any, index: number) => (
@@ -139,7 +140,7 @@ const BrowseMovies: NextPage = () => {
                                                 </Link>
                             ))}
                         </div>
-                        {data ? <h2>Animation</h2> : null}
+                        {data.results ? <h2>Animation</h2> : null}
                         <div className="animation-movies-section">
                             {data?.results?.filter((result: number | any, index: number) => result?.genre_ids[0] === 16)
                                             .map((result: string | any, index: number) => (
@@ -160,6 +161,27 @@ const BrowseMovies: NextPage = () => {
                                                 </Link>
                             ))}
                         </div>
+                        {data.results ? <h2>Adventure</h2> : null}
+                        <div className="adventure-movies-section">
+                            {data?.results?.filter((result: number | any, index: number) => result?.genre_ids[1] === 12)
+                                                .map((result: string | any, index: number) => (
+                                                    <Link href='' passHref>
+                                                        <figure key={index}>
+                                                            <Image
+                                                                src={"https://image.tmdb.org/t/p/w500" + result?.poster_path}
+                                                                alt={result?.title} 
+                                                                width={148} 
+                                                                height={160}
+                                                                blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                                                                placeholder="blur"
+                                                                style={{
+                                                                    borderRadius: '5px'
+                                                                }}
+                                                            />
+                                                        </figure>
+                                                    </Link>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -168,7 +190,7 @@ const BrowseMovies: NextPage = () => {
                 <div className="desktop-movie-sections">
                     <div className="desktop-trailer-section"></div>
                     <div className="desktop-popular-movie-category">
-                        <h2>Popular Movies</h2>
+                        {data.results ? <h2>Popular</h2> : null}
                             {data?.results?.map((result: string | any, index: number) => (
                                     <Link href='' passHref>
                                         <figure key={index}>
@@ -188,8 +210,71 @@ const BrowseMovies: NextPage = () => {
                             ))}
                     </div>
                     <div className="desktop-action-movie-category">
-                        <h2>Action Movies</h2>
+                        {data.results ? <h2>Action</h2> : null}
                             {data?.results?.filter((result: number | any) => result?.genre_ids[0] === 28)
+                                            .map((result: string | any, index: number) => (
+                                    <Link href='' passHref>
+                                        <figure key={index}>
+                                            <Image
+                                                src={"https://image.tmdb.org/t/p/w500" + result?.poster_path}
+                                                alt={result?.title} 
+                                                width={237} 
+                                                height={134}
+                                                blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                                                placeholder="blur"
+                                                style={{
+                                                    borderRadius: '5px'
+                                                }}
+                                            />
+                                        </figure>
+                                    </Link>
+                            ))}
+                    </div>
+                    <div className="desktop-crime-movie-category">
+                        {data.results ? <h2>Crime</h2> : null}
+                            {data?.results?.filter((result: number | any) => result?.genre_ids[2] === 80)
+                                            .map((result: string | any, index: number) => (
+                                    <Link href='' passHref>
+                                        <figure key={index}>
+                                            <Image
+                                                src={"https://image.tmdb.org/t/p/w500" + result?.poster_path}
+                                                alt={result?.title} 
+                                                width={237} 
+                                                height={134}
+                                                blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                                                placeholder="blur"
+                                                style={{
+                                                    borderRadius: '5px'
+                                                }}
+                                            />
+                                        </figure>
+                                    </Link>
+                            ))}
+                    </div>
+                    <div className="desktop-animation-movie-category">
+                        {data.results ? <h2>Animation</h2> : null}
+                            {data?.results?.filter((result: number | any) => result?.genre_ids[0] === 16)
+                                            .map((result: string | any, index: number) => (
+                                    <Link href='' passHref>
+                                        <figure key={index}>
+                                            <Image
+                                                src={"https://image.tmdb.org/t/p/w500" + result?.poster_path}
+                                                alt={result?.title} 
+                                                width={237} 
+                                                height={134}
+                                                blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                                                placeholder="blur"
+                                                style={{
+                                                    borderRadius: '5px'
+                                                }}
+                                            />
+                                        </figure>
+                                    </Link>
+                            ))}
+                    </div>
+                    <div className="desktop-adventure-movie-category">
+                        {data.results ? <h2>Adventure</h2> : null}
+                            {data?.results?.filter((result: number | any) => result?.genre_ids[1] === 12)
                                             .map((result: string | any, index: number) => (
                                     <Link href='' passHref>
                                         <figure key={index}>
@@ -210,6 +295,7 @@ const BrowseMovies: NextPage = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
