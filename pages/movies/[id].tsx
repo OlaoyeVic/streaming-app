@@ -7,52 +7,7 @@ import { fetchMoviesPage2 } from "../api/browsepagetwo"
 import { PHASE_PRODUCTION_BUILD } from "next/dist/shared/lib/constants"
 import { Props } from "framer-motion/types/types"
 import { type } from "os"
-
-// type IPath = {
-//     [key: string]: string | number
-// }
-
-
-// export async function getStaticPaths() {
-//     if(process.env.SKIP_BUILD_STATIC_GENERATION) {
-//         return {
-//             paths: [],
-//             fallback: 'blocking'
-//         }
-//     }
-
-
-//     const res = await fetch('https://api.themoviedb.org/3/movie/popular/?api_key=4b3ee28be647cb8720611823db37c4b2&language=en-US&page=1')
-//     const data = await res.json()
-
-//     const paths = data.results?.map((result: IPath) => {
-//         return {
-//             params: {id: result.id.toString()}
-//         }
-//     })
-
-//     console.log(data)
-
-//     return {
-//         paths,
-//         fallback: true
-//     }
-// }
-
-// export const getStaticProps = async({ params }: any) => {
-//     console.log(params)
-//     const { id } = params
-
-//     const res = await fetch('https://api.themoviedb.org/3/movie/popular/?api_key=4b3ee28be647cb8720611823db37c4b2&language=en-US&page=1')
-//     const movies = await res.json()
-
-    
-//     return {
-//         props: {
-//             movie: movies?.results?.find((movie: IPath) => movie.id === id) || null
-//         }
-//     }
-// }
+import api from "../../api"
 
 type IMovie = {
     [key: string]: string | number 
@@ -60,14 +15,27 @@ type IMovie = {
 
 interface Query extends ParsedUrlQuery {
     id: string
-  }
+}
+
+interface Prop {
+    movie: IMovie
+}
 
 export const getStaticPaths: GetStaticPaths = async() => {
+    if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+        return {
+          paths: [],
+          fallback: 'blocking',
+        }
+    }
+
     const query = await fetch('https://api.themoviedb.org/3/movie/popular/?api_key=4b3ee28be647cb8720611823db37c4b2&language=en-US&page=1')
     // console.log(data)
     const data = await query.json()
 
-    // const paths = data.results.length > 0 && data.results.map((result: IMovie) => ({
+    // const data = await fetchMovies()
+
+    // const paths = data?.results.length > 0 && data?.results.map((result: IMovie) => ({
     //     params: {
     //         id: result.id.toString()
     //     }

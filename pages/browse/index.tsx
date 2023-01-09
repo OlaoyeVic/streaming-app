@@ -49,6 +49,7 @@ const BrowseMovies: NextPage = () => {
     const { data } = useQuery({ queryKey: ['movies'], queryFn: fetchMovies})
     const { data: otherData } = useQuery({ queryKey: ['movies-2'], queryFn: fetchMoviesPage2})
     console.log(data)
+
     return (
         <div className="browse">
             <div className="mobile-browse-container">
