@@ -9,7 +9,6 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import Footer from "../../components/Footer"
 
-
 const shimmer = (w: number, h: number) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
@@ -81,7 +80,7 @@ const BrowseMovies: NextPage = () => {
                         </div><br/>
                         <div className="popular-movies-section">
                             {otherData?.results?.map((result: string | any, index: number) => ( 
-                                    <Link href='' passHref >
+                                    <Link href={`movies/${result?.id}`} passHref >
                                         <figure key={index} data-content={result?.original_title}>
                                             <Image 
                                                 // loader={() => imageUrl + result?.poster_path}
@@ -103,7 +102,7 @@ const BrowseMovies: NextPage = () => {
                         <div className="action-movies-section">
                             {data?.results?.filter((result: number | any) => result?.genre_ids[0] === 28)
                                             .map((result: string | any, index: number) => (
-                                                <Link href='' passHref>
+                                                <Link href={`movies/${result?.id}`} passHref >
                                                     <figure key={index}>
                                                         <Image
                                                             src={"https://image.tmdb.org/t/p/w500" + result?.poster_path}
@@ -124,7 +123,7 @@ const BrowseMovies: NextPage = () => {
                         <div className="crime-movies-section">
                             {data?.results?.filter((result: number | any, index: number) => result?.genre_ids[2] === 80)
                                             .map((result: string | any, index: number) => (
-                                                <Link href='' passHref>
+                                                <Link href={`movies/${result?.id}`} passHref >
                                                     <figure key={index}>
                                                         <Image
                                                             src={"https://image.tmdb.org/t/p/w500" + result?.poster_path}
@@ -145,7 +144,7 @@ const BrowseMovies: NextPage = () => {
                         <div className="animation-movies-section">
                             {data?.results?.filter((result: number | any, index: number) => result?.genre_ids[0] === 16)
                                             .map((result: string | any, index: number) => (
-                                                <Link href='' passHref>
+                                                <Link href={`movies/${result?.id}`} passHref >
                                                     <figure key={index}>
                                                         <Image
                                                             src={"https://image.tmdb.org/t/p/w500" + result?.poster_path}
@@ -166,7 +165,7 @@ const BrowseMovies: NextPage = () => {
                         <div className="adventure-movies-section">
                             {data?.results?.filter((result: number | any, index: number) => result?.genre_ids[1] === 12)
                                                 .map((result: string | any, index: number) => (
-                                                    <Link href='' passHref>
+                                                    <Link href={`movies/${result?.id}`} passHref >
                                                         <figure key={index}>
                                                             <Image
                                                                 src={"https://image.tmdb.org/t/p/w500" + result?.poster_path}
@@ -193,7 +192,7 @@ const BrowseMovies: NextPage = () => {
                     <div className="desktop-popular-movie-category">
                         {data.results ? <h2>Popular</h2> : null}
                             {data?.results?.map((result: string | any, index: number) => (
-                                    <Link href='' passHref>
+                                    <Link href={`movies/${result?.id}`} passHref >
                                         <figure key={index}>
                                             <Image
                                                 src={"https://image.tmdb.org/t/p/w500" + result?.poster_path}
@@ -214,7 +213,7 @@ const BrowseMovies: NextPage = () => {
                         {data.results ? <h2>Action</h2> : null}
                             {data?.results?.filter((result: number | any) => result?.genre_ids[0] === 28)
                                             .map((result: string | any, index: number) => (
-                                    <Link href='' passHref>
+                                    <Link href={`movies/${result?.id}`} passHref >
                                         <figure key={index}>
                                             <Image
                                                 src={"https://image.tmdb.org/t/p/w500" + result?.poster_path}
@@ -235,7 +234,7 @@ const BrowseMovies: NextPage = () => {
                         {data.results ? <h2>Crime</h2> : null}
                             {data?.results?.filter((result: number | any) => result?.genre_ids[2] === 80)
                                             .map((result: string | any, index: number) => (
-                                    <Link href='' passHref>
+                                    <Link href={`movies/${result?.id}`} passHref >
                                         <figure key={index}>
                                             <Image
                                                 src={"https://image.tmdb.org/t/p/w500" + result?.poster_path}
@@ -256,7 +255,7 @@ const BrowseMovies: NextPage = () => {
                         {data.results ? <h2>Animation</h2> : null}
                             {data?.results?.filter((result: number | any) => result?.genre_ids[0] === 16)
                                             .map((result: string | any, index: number) => (
-                                    <Link href='' passHref>
+                                    <Link href={`movies/${result?.id}`} passHref >
                                         <figure key={index}>
                                             <Image
                                                 src={"https://image.tmdb.org/t/p/w500" + result?.poster_path}
@@ -277,7 +276,7 @@ const BrowseMovies: NextPage = () => {
                         {data.results ? <h2>Adventure</h2> : null}
                             {data?.results?.filter((result: number | any) => result?.genre_ids[1] === 12)
                                             .map((result: string | any, index: number) => (
-                                    <Link href='' passHref>
+                                    <Link href={`movies/${result?.id}`} passHref >
                                         <figure key={index}>
                                             <Image
                                                 src={"https://image.tmdb.org/t/p/w500" + result?.poster_path}

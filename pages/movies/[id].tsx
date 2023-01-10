@@ -5,9 +5,9 @@ import { ParsedUrlQuery } from "querystring"
 import { fetchMovies } from "../api/browse"
 import { fetchMoviesPage2 } from "../api/browsepagetwo"
 import { PHASE_PRODUCTION_BUILD } from "next/dist/shared/lib/constants"
-import { Props } from "framer-motion/types/types"
 import { type } from "os"
-import api from "../../api"
+
+const API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_KEY
 
 type IMovie = {
     [key: string]: string | number 
@@ -17,11 +17,11 @@ interface Query extends ParsedUrlQuery {
     id: string
 }
 
-interface Prop {
+interface Props {
     movie: IMovie
 }
 
-export const getStaticPaths: GetStaticPaths = async() => {
+export const getStaticPaths: GetStaticPaths<Query> = async() => {
     if (process.env.SKIP_BUILD_STATIC_GENERATION) {
         return {
           paths: [],
@@ -29,19 +29,10 @@ export const getStaticPaths: GetStaticPaths = async() => {
         }
     }
 
-    const query = await fetch('https://api.themoviedb.org/3/movie/popular/?api_key=4b3ee28be647cb8720611823db37c4b2&language=en-US&page=1')
-    // console.log(data)
+    const query = await fetch(`https://api.themoviedb.org/3/movie/popular/?api_key=${API_KEY}&language=en-US&page=1`)
     const data = await query.json()
 
-    // const data = await fetchMovies()
-
-    // const paths = data?.results.length > 0 && data?.results.map((result: IMovie) => ({
-    //     params: {
-    //         id: result.id.toString()
-    //     }
-    // }))
-
-    const paths = Object.values(data.results).map(({ id }: any) => {{
+    const paths = data && Object.values(data.results).map(({ id }: any) => {{
         return {
             params: {
                 id: id?.toString()
@@ -55,15 +46,12 @@ export const getStaticPaths: GetStaticPaths = async() => {
     }
 }
 
-export const getStaticProps: GetStaticProps = async({ params }) => {
+export const getStaticProps: GetStaticProps<Props, Query> = async({ params }) => {
     const { id }: any = params
-    const query = await fetch('https://api.themoviedb.org/3/movie/popular/?api_key=4b3ee28be647cb8720611823db37c4b2&language=en-US&page=1')
-    // console.log(data)
+    const query = await fetch(`https://api.themoviedb.org/3/movie/popular/?api_key=${API_KEY}&language=en-US&page=1`)
     const data = await query.json()
-    // const query = await fetchMovies()
-    // const data = await query.json()
 
-    const movies = Object.values(data.results).filter((result: any) => result.id.toString() === id)
+    const movies = data && Object.values(data.results).filter((result: any) => result.id.toString() === id)
 
     return {
         props: {
@@ -72,8 +60,7 @@ export const getStaticProps: GetStaticProps = async({ params }) => {
     }
 }
 
-const MoviePage = ({ movie }: {movie: any}) => {
-    // const { data } = useQuery(['movies'], fetchMovies, { initialData: props.movie})
+const MoviePage = ({ movie }: {movie: IMovie}) => {
     console.log(movie)
     return (
         <div>
