@@ -2,7 +2,7 @@
     width: 100%;
 }
 .mobile-browse-container {
-    border-bottom: 8px solid #222;
+    border-bottom: 8px solid var(--secondary-color);
     display: block;
     margin-top: 50px;
     .movie-sections {
