@@ -33,7 +33,7 @@ const Welcome: NextPage = () => {
                     <Image src={video} alt="video streaming" quality={100} />
                 </div>
                 <div className="right-panel">
-                    <h3>Hey <>{user?.given_name}, Welcome!</></h3>
+                    <h3>Hey <>{user?.given_name}</>, Welcome!</h3>
                     {/* <p>Welcome Back</p> */}
                 </div>
             </div>

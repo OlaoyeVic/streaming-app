@@ -11,13 +11,12 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0"
 import { shimmer, toBase64 } from "../browse"
 import Footer from "../../components/Footer"
 
-const API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_KEY
-
 type IMovie = {
     [key: string]: string | number 
     release_date: string
     vote_average: number
     original_language: string
+    title: string
 }
 
 interface Query extends ParsedUrlQuery {
@@ -28,6 +27,7 @@ interface Props {
     movie: IMovie
 }
 
+const API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_KEY
 export const getStaticPaths: GetStaticPaths<Query> = async() => {
     if (process.env.SKIP_BUILD_STATIC_GENERATION) {
         return {
@@ -80,7 +80,7 @@ const MoviePage = ({ movie }: {movie: IMovie}) => {
                     className="mobile-movie-backdrop"
                     style={{
                         backgroundImage: `url(${imageUrl})`,
-                        backgroundColor: 'linear-gradient(to right, rgba(31.5, 31.5, 52.5, 1) 20%, rgba(31.5, 31.5, 52.5, 0) 50%)',
+                        // backgroundColor: 'linear-gradient(to right, rgba(31.5, 31.5, 52.5, 1) 20%, rgba(31.5, 31.5, 52.5, 0) 50%)',
                         backgroundSize: 'cover',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center',
@@ -97,7 +97,7 @@ const MoviePage = ({ movie }: {movie: IMovie}) => {
                     }}>
                         <Image 
                             src={"https://image.tmdb.org/t/p/w500" + movie.poster_path} 
-                            alt="movie" 
+                            alt={movie.title}
                             width={70} 
                             height={105}
                             blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
@@ -129,9 +129,42 @@ const MoviePage = ({ movie }: {movie: IMovie}) => {
                 </div>
             </div>
             <div className="desktop-movie-container">
-                <div className="mobile-movie-navbar">
+                <div className="desktop-movie-navbar">
                     <Navbar />
                 </div>
+                <div className="desktop-movie-backdrop"  style={{backgroundImage: `url(${imageUrl})`}}>
+                    <figure className="desktop-backdrop-image">
+                        <Image 
+                            src={"https://image.tmdb.org/t/p/w500" + movie.poster_path} 
+                            alt={movie.title} 
+                            width={300} 
+                            height={450}
+                            blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                            placeholder="blur"
+                            style={{
+                                borderRadius: '10px',
+                            }}
+                        />
+                    </figure>
+                    <div className="desktop-overlay-info">
+                        <h1>{movie.title} ({movie.release_date.slice(0, 4)})</h1>
+                        <p>
+                            <span>R</span> {movie.release_date} ({movie.original_language.toUpperCase()}) {movie.runtime}
+                        </p>
+                        <p style={{padding: '10px 0'}}>
+                            <pre>
+                                <b className="circle">
+                                        {movie.vote_average * 10}&#65130;
+                                </b> User Score      |       &#9654;  Play Trailer
+                            </pre>
+                        </p>
+                        <div className="desktop-movie-overview">
+                            <h2>Overview</h2>
+                            <p>{movie.overview}</p>
+                        </div>
+                    </div>
+                </div>
+            <div className="desktop-movie-details"></div>
             </div>
             <Footer />
         </div>

@@ -60,4 +60,42 @@
     .mobile-movie-container {
         display: none;
     }
+    .desktop-movie-container {
+        display: block;
+        margin-top: 100px;
+        border-bottom: 8px solid var(--secondary-color);
+        .desktop-movie-backdrop {
+            padding: 20px;
+            background-color: var(--secondary-color);
+            background-blend-mode: multiply;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            max-height: 570px;
+            .desktop-overlay-info {
+                p {
+                    max-width: 640px;
+                    text-align: left;
+                    > span {
+                        border: 1px solid var(--white-text);
+                        border-width: 2px;
+                        padding: 0 10px;
+                    }
+                }
+                .circle {
+                    border-radius: 50%;
+                    width: 40px;
+                    height: 40px;
+                    padding: 10px 6px;
+                    background: #fff;
+                    border: 3px solid var(--primary-color);
+                    box-shadow: 0px 0 5px 0px var(--primary-color);
+                    color: #000;
+                    text-align: center;
+                    font-size: smaller;
+                }
+            }
+        }
+    }
 }
