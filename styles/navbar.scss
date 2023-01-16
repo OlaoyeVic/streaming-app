@@ -79,7 +79,7 @@
             .dropdown-content {
                 display: none;
                 position: absolute;
-                background: #222;
+                background: var(--secondary-color);
                 // width: 60%;
                 left: 230px;
                 z-index: 1;
@@ -148,7 +148,7 @@
                     position: absolute;
                     right: 5px;
                     z-index: 1;
-                    background: #222;
+                    background: var(--secondary-color);
                     border-radius: 10px;
                     padding: 16px 8px;
                     hr {

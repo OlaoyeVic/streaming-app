@@ -118,7 +118,7 @@
 @media (prefers-color-scheme: dark) {
   .card,
   .footer {
-    border-color: #222;
+    border-color: var(--secondary-color);
   }
   .code {
     background: #111;

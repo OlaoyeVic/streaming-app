@@ -11,7 +11,7 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        border-bottom: 8px solid #222;
+        border-bottom: 8px solid var(--secondary-color);
         color: #fff;
         margin-bottom: 0;
         .mobile-header {
@@ -84,7 +84,7 @@
         max-width: 640px;
         text-transform: capitalize;
         text-align: center;
-        border-bottom: 8px solid #222;
+        border-bottom: 8px solid var(--secondary-color);
         color: #fff;
         margin-bottom: 0;
         h1 {
@@ -104,7 +104,7 @@
         @extend .mobile-second-section;
     }
     .mobile-faq {
-        border-bottom: 8px solid #222;
+        border-bottom: 8px solid var(--secondary-color);
         color: #fff;
         margin-bottom: 0;
         h1 {
@@ -165,7 +165,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            border-bottom: 8px solid #222;
+            border-bottom: 8px solid var(--secondary-color);
             color: #fff;
             margin-bottom: 0;
             .desktop-header {
@@ -244,7 +244,7 @@
             align-items: center;
             padding: 20px 200px;
             text-transform: capitalize;
-            border-bottom: 8px solid #222;
+            border-bottom: 8px solid var(--secondary-color);
             color: #fff;
             margin-bottom: 0;
             div:first-child {
@@ -264,7 +264,7 @@
             align-items: center;
             padding: 20px 200px;
             text-transform: capitalize;
-            border-bottom: 8px solid #222;
+            border-bottom: 8px solid var(--secondary-color);
             color: #fff;
             margin-bottom: 0;
             div:nth-child(2) {
@@ -280,7 +280,7 @@
         .desktop-fourth-section {
             padding: 20px 200px;
             text-transform: capitalize;
-            border-bottom: 8px solid #222;
+            border-bottom: 8px solid var(--secondary-color);
             color: #fff;
             margin-bottom: 0;
             h1 {
@@ -296,7 +296,7 @@
             @extend .desktop-second-section;
         }
         .desktop-faq {
-            border-bottom: 8px solid #222;
+            border-bottom: 8px solid var(--secondary-color);
             color: #fff;
             margin-bottom: 0;
             padding: 0 300px;
